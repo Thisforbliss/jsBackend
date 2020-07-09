@@ -23,6 +23,7 @@ class Api::V1::PostsController < ApplicationController
         @post = Post.new(post_params)
         if  @post.save
             serialized_data = PostSerializer.new(@post).serialized_json
+            
         render json: serialized_data, status: 200
         else
         render 'new'
